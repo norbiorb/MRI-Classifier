@@ -17,7 +17,7 @@ from tensorflow.keras.preprocessing.image import load_img
 K = tf.keras.backend
 
 
-def load_json_as_df(filedir, filename):
+def load_json_as_df(filedir, filename, img_filedir=None):
     """
     This function loads data from json files in data folder. Also cross-checks
     whether each image is in images folder.
@@ -31,7 +31,12 @@ def load_json_as_df(filedir, filename):
     json_path = os.path.join(filedir, filename + '.json')
     tdf = pd.read_json(json_path, orient='index')
 
-    img_filedir = os.path.join(filedir, 'images/')
+    if img_filedir is None:
+        img_filedir = os.path.join(filedir, 'images/')
+
+    print(json_path)
+    print(img_filedir)
+
     list_image_paths = glob.glob(img_filedir + '*.jpg')
     list_image_paths = [x.replace(img_filedir,'') for x in list_image_paths]
     check_image_bool = tdf['image-name'].apply(lambda x: x in list_image_paths)
@@ -224,7 +229,9 @@ def preprocess_images(im_path):
   image = load_img(im_path, target_size=(224, 224))
   image = img_to_array(image)
   image = np.expand_dims(image, axis=0)
-  image = resnet.preprocess_input(image)
+  # during training only rescaling was done in ImageGenerator
+  image /= 255
+  # image = resnet.preprocess_input(image)
 
   return resized, image, orig
 
