@@ -4,6 +4,7 @@ import tensorflow as tf
 import numpy as np
 import cv2
 
+# Reference: https://keras.io/examples/vision/grad_cam/
 
 class GradCAM:
     def __init__(self, model, layerName=None):

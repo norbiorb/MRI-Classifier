@@ -17,3 +17,7 @@ All these contain data loading, data sampling, image augmentation, model definit
 * `Transfer_Learning_ResNet_GradCAM.ipnb`   Transferlearning (uses `sequence`label by default, changeable, contains additionally GradCAM heatmap)
 * `DualOutput_Transfer_Learning_ResNet.ipnb` Transferlearning (uses combined `perspective-sequence` label) by default and model outputs predictions for both labels)
 * `Bayesian_Transfer_Learning_ResNet.ipnb`  Transferlearning (uses `sequence`label by default, additionally it contains an uncertainty evaluation using Bayesian theory)
+
+The following two notebooks evaluate the test images separated during a training using the previous notebooks. One evaluates `perspective` labeled test data, the other `sequence`labeled test data. They provide confusion matrices and gradCAM images
+* `Perspective_Evaluation_GradCAM.ipynb`
+* `Sequence_Evaluation_GradCAM.ipynb` 

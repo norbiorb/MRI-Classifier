@@ -1,5 +1,5 @@
 # Propulsion Academy Final Project - MRI Classifier
-## Authors: Norbert Bräker, Cornelia Schmitz
+## Authors: Norbert Bräker, [Cornelia Schmitz](https://github.com/enneth)
 ### July 2020
 
 ## Repository Structure
